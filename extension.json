@@ -98,8 +98,25 @@
 			"lessMessages": [
 				"structurednavigation-separator-symbol"
 			]
+		},
+		"ext.structurednavigation.visualeditor": {
+			"scripts": [
+				"resources/modules/ve-structurednavigation/ve.ce.MWStructuredNavigationNode.js",
+				"resources/modules/ve-structurednavigation/ve.dm.MWStructuredNavigationNode.js",
+				"resources/modules/ve-structurednavigation/ve.ui.MWStructuredNavigationInspector.js",
+				"resources/modules/ve-structurednavigation/ve.ui.MWStructuredNavigationInspectorTool.js"
+			],
+			"dependencies": [
+				"ext.visualEditor.mwcore"
+			],
+			"messages": [
+				"structurednavigation-visualeditor-mwstructurednavigationinspector-title"
+			]
 		}
 	},
+	"VisualEditorPluginModules": [
+		"ext.structurednavigation.visualeditor"
+	],
 	"CodeMirrorTagModes": {
 		"mw-navigation": "text/mediawiki"
 	},

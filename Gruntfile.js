@@ -5,6 +5,7 @@ module.exports = function ( grunt ) {
 
 	grunt.loadNpmTasks( 'grunt-jsonlint' );
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
+	grunt.loadNpmTasks( 'grunt-eslint' );
 	grunt.loadNpmTasks( 'grunt-stylelint' );
 
 	grunt.initConfig( {
@@ -23,6 +24,14 @@ module.exports = function ( grunt ) {
 				'**/*.less',
 				'!node_modules/**',
 				'!vendor/**',
+			]
+		},
+		eslint: {
+			all: [
+				'*.js',
+				'resources/modules/*.js',
+				'resources/modules/ve-structurednavigation/**/*.js',
+				'!{node_modules,vendor,docs}/**/*.js'
 			]
 		}
 	} );

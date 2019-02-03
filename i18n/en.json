@@ -7,5 +7,6 @@
 	"structurednavigation-desc": "Allows creating a structured, machine-readable navigation for use on articles.",
 	"structurednavigation-separator-symbol": "\\",
 	"structurednavigation-reserved-username": "StructuredNavigation script",
-	"navigationschema": "Navigation schema"
+	"navigationschema": "Navigation schema",
+	"structurednavigation-visualeditor-mwstructurednavigationinspector-title": "Structured navigation"
 }
