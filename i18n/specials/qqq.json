@@ -10,5 +10,9 @@
 	"specials-navigationschema-subtitle": "Subtitle for Special:NavigationSchema",
 	"specials-titlesusedinnavigation-legend": "Legend used for Special:TitlesUsedInNavigation",
 	"specials-titlesusedinnavigation-field-title-label": "The label for the title field in Special:TitlesUsedInNavigation",
-	"specials-titlesusedinnavigation-field-title-placeholder": "The placeholder for the title field in Special:TitlesUsedInNavigation"
+	"specials-titlesusedinnavigation-field-title-placeholder": "The placeholder for the title field in Special:TitlesUsedInNavigation",
+	"specials-titlesusedinnavigation-field-exists-label": "The label for the \"filter by existence\" field in Special:TitlesUsedInNavigation",
+	"specials-titlesusedinnavigation-field-exists-option-both": "Label for option for getting both existing/non-existing titles in Special:TitlesUsedInNavigation",
+	"specials-titlesusedinnavigation-field-exists-option-exists": "Label for option for only getting existing titles in Special:TitlesUsedInNavigation",
+	"specials-titlesusedinnavigation-field-exists-option-not": "Label for option for only getting non-existing titles in Special:TitlesUsedInNavigation"
 }

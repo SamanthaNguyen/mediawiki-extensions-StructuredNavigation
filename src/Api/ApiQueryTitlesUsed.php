@@ -16,6 +16,7 @@ use StructuredNavigation\Title\QueryTitlesUsedLookup;
 final class ApiQueryTitlesUsed extends ApiQueryBase {
 
 	private const PARAM_TITLE = 'title';
+	private const PARAM_EXISTENCE = 'existence';
 	private const PREFIX = 'snqtu';
 
 	/** @var QueryTitlesUsedLookup */
@@ -39,11 +40,12 @@ final class ApiQueryTitlesUsed extends ApiQueryBase {
 	public function execute() {
 		$params = $this->extractRequestParams();
 		$title = $params[self::PARAM_TITLE];
+		$existence = (int)$params[self::PARAM_EXISTENCE];
 
 		$this->getResult()->addValue(
 			'query',
 			$this->getModuleName(),
-			[ $title => $this->queryTitlesUsedLookup->getTitlesUsed( $title ) ]
+			[ $title => $this->queryTitlesUsedLookup->getTitlesByExistenceDyanmically( $existence, $title ) ]
 		);
 	}
 
@@ -54,6 +56,10 @@ final class ApiQueryTitlesUsed extends ApiQueryBase {
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => true,
 			],
+			self::PARAM_EXISTENCE => [
+				ApiBase::PARAM_TYPE => 'integer',
+				ApiBase::PARAM_REQUIRED => false,
+			]
 		];
 	}
 

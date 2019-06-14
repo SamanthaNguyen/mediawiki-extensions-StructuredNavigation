@@ -10,5 +10,9 @@
 	"specials-navigationschema-subtitle": "JSON schema for structured navigations",
 	"specials-titlesusedinnavigation-legend": "Titles used in navigation",
 	"specials-titlesusedinnavigation-field-title-label": "Navigation title",
-	"specials-titlesusedinnavigation-field-title-placeholder": "A title in the Navigation namespace, e.g \"Dontnod Entertainment\""
+	"specials-titlesusedinnavigation-field-title-placeholder": "A title in the Navigation namespace, e.g \"Dontnod Entertainment\"",
+	"specials-titlesusedinnavigation-field-exists-label": "Filter by existence",
+	"specials-titlesusedinnavigation-field-exists-option-both": "Get both existing and non-existing titles",
+	"specials-titlesusedinnavigation-field-exists-option-exists": "Get only existing titles",
+	"specials-titlesusedinnavigation-field-exists-option-not": "Get only non-existing titles"
 }

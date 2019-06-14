@@ -19,9 +19,14 @@ use StructuredNavigation\Title\NavigationTitleValue;
 final class TitlesUsedInNavigation extends FormSpecialPage {
 
 	private const FIELD_TITLE = 'title';
+	private const FIELD_EXISTENCE = 'existence';
 	private const MESSAGE_LEGEND = 'specials-titlesusedinnavigation-legend';
 	private const MESSAGE_TITLE_LABEL = 'specials-titlesusedinnavigation-field-title-label';
 	private const MESSAGE_TITLE_PLACEHOLDER = 'specials-titlesusedinnavigation-field-title-placeholder';
+	private const MESSAGE_EXISTS_LABEL = 'specials-titlesusedinnavigation-field-exists-label';
+	private const MESSAGE_EXISTS_OPTION_EXISTS = 'specials-titlesusedinnavigation-field-exists-option-exists';
+	private const MESSAGE_EXISTS_OPTION_NOT_EXISTS = 'specials-titlesusedinnavigation-field-exists-option-not';
+	private const MESSAGE_EXISTS_OPTION_BOTH = 'specials-titlesusedinnavigation-field-exists-option-both';
 	private const PAGE_NAME = 'TitlesUsedInNavigation';
 
 	/** @var QueryTitlesUsedLookup */
@@ -69,7 +74,7 @@ final class TitlesUsedInNavigation extends FormSpecialPage {
 	/** @inheritDoc */
 	public function onSubmit( array $formData, $htmlForm = null ) {
 		$htmlForm->setPostText(
-			$this->getTitleList( $formData[self::FIELD_TITLE] )
+			$this->getTitleList( $formData )
 		);
 	}
 
@@ -89,6 +94,16 @@ final class TitlesUsedInNavigation extends FormSpecialPage {
 				'relative' => true,
 				'creatable' => true
 			],
+			self::FIELD_EXISTENCE => [
+				'type' => 'radio',
+				'label-message' => self::MESSAGE_EXISTS_LABEL,
+				'options-messages' => [
+					self::MESSAGE_EXISTS_OPTION_BOTH => QueryTitlesUsedLookup::EXISTS_OPTION_BOTH,
+					self::MESSAGE_EXISTS_OPTION_EXISTS => QueryTitlesUsedLookup::EXISTS_OPTION_EXISTS,
+					self::MESSAGE_EXISTS_OPTION_NOT_EXISTS => QueryTitlesUsedLookup::EXISTS_OPTION_NOT,
+				],
+				'default' => 0,
+			],
 		];
 	}
 
@@ -99,13 +114,15 @@ final class TitlesUsedInNavigation extends FormSpecialPage {
 	}
 
 	/**
-	 * @param string $title
+	 * @param array $formData
 	 * @return UnorderedList
 	 */
-	private function getTitleList( string $title ) : UnorderedList {
+	private function getTitleList( array $formData ) : UnorderedList {
 		return new UnorderedList( [
-			'items' => $this->queryTitlesUsedLookup
-				->getTitlesUsed( $title )
+			'items' => $this->queryTitlesUsedLookup->getTitlesByExistenceDyanmically(
+				$formData[self::FIELD_EXISTENCE],
+				$formData[self::FIELD_TITLE]
+			)
 		] );
 	}
 }
