@@ -2,6 +2,7 @@
 
 namespace StructuredNavigation\View;
 
+use MediaWiki\Linker\LinkRenderer;
 use OOUI\HtmlSnippet;
 use OOUI\Tag;
 use StructuredNavigation\Libs\OOUI\Element\DescriptionList;
@@ -31,10 +32,10 @@ final class NavigationView {
 		'nav' => 'mw-structurednav-navigation-container'
 	];
 
-	private ContentLinkView $contentLinkView;
+	private LinkRenderer $linkRenderer;
 
-	public function __construct( ContentLinkView $contentLinkView ) {
-		$this->contentLinkView = $contentLinkView;
+	public function __construct( LinkRenderer $linkRenderer ) {
+		$this->linkRenderer = $linkRenderer;
 	}
 
 	public function getView( Navigation $navigation ) : Tag {
@@ -81,8 +82,9 @@ final class NavigationView {
 		$allContent = [];
 
 		foreach ( $navigationLinks as $navigationLink ) {
-			$allContent[] = $this->contentLinkView->getLink(
-				$navigationLink,
+			$allContent[] = $this->linkRenderer->makeLink(
+				$navigationLink->getTitleValue(),
+				$navigationLink->getLabel(),
 				[ 'class' => self::CSS_CLASS['group-content-link'] ]
 			);
 		}
