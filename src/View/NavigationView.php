@@ -2,7 +2,6 @@
 
 namespace StructuredNavigation\View;
 
-use MediaWiki\Linker\LinkRenderer;
 use OOUI\HtmlSnippet;
 use OOUI\Tag;
 use StructuredNavigation\Libs\OOUI\Element\DescriptionList;
@@ -42,12 +41,12 @@ final class NavigationView {
 		return ( new Tag( 'nav' ) )
 			->addClasses( [ self::CSS_CLASS['nav'] ] )
 			->appendContent( new HtmlSnippet(
-				$this->doRenderHeader( $navigation ) .
-				$this->doRenderGroups( $navigation )
+				$this->renderHeader( $navigation ) .
+				$this->renderGroups( $navigation )
 			) );
 	}
 
-	private function doRenderHeader( Navigation $navigation ) : Tag {
+	private function renderHeader( Navigation $navigation ) : Tag {
 		return ( new Tag( 'header' ) )
 			->addClasses( [ self::CSS_CLASS['header'] ] )
 			->appendContent( new HtmlSnippet(
@@ -58,14 +57,14 @@ final class NavigationView {
 			) );
 	}
 
-	private function doRenderGroups( Navigation $navigation ) : DescriptionList {
+	private function renderGroups( Navigation $navigation ) : DescriptionList {
 		$allGroups = [];
 		$groups = $navigation->getGroups();
 
 		foreach ( $groups as $group ) {
 			$allGroups[] = [
 				'term' => $group->getLabel(),
-				'detail' => $this->doRenderContent( $group->getLinks() )
+				'detail' => $this->renderContent( $group->getLinks() )
 			];
 		}
 
@@ -78,7 +77,7 @@ final class NavigationView {
 		] );
 	}
 
-	private function doRenderContent( array $navigationLinks ) : UnorderedList {
+	private function renderContent( array $navigationLinks ) : UnorderedList {
 		$allContent = [];
 
 		foreach ( $navigationLinks as $navigationLink ) {
