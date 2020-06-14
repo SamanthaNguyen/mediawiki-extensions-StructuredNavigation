@@ -27,14 +27,14 @@ return [
 	'StructuredNavigation.ContentLinkView'
 		=> function ( MediaWikiServices $services ) : ContentLinkView {
 		return new ContentLinkView(
-			$services->getLinkRenderer(),
-			$services->getTitleParser()
+			$services->getLinkRenderer()
 		);
 		},
 
 	'StructuredNavigation.NavigationFactory'
 		=> function ( MediaWikiServices $services ) : NavigationFactory {
 		return new NavigationFactory(
+			$services->getTitleParser(),
 			( new Services( $services ) )->getNavigationTitleValue()
 		);
 		},

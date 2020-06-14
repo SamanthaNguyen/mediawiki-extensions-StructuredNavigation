@@ -63,8 +63,8 @@ final class NavigationView {
 
 		foreach ( $groups as $group ) {
 			$allGroups[] = [
-				'term' => $navigation->getGroupTitleLabel( $group ),
-				'detail' => $this->doRenderContent( $navigation->getGroupContent( $group ) )
+				'term' => $group->getLabel(),
+				'detail' => $this->doRenderContent( $group->getLinks() )
 			];
 		}
 
@@ -77,12 +77,12 @@ final class NavigationView {
 		] );
 	}
 
-	private function doRenderContent( array $content ) : UnorderedList {
+	private function doRenderContent( array $navigationLinks ) : UnorderedList {
 		$allContent = [];
 
-		foreach ( $content as $contentItem ) {
+		foreach ( $navigationLinks as $navigationLink ) {
 			$allContent[] = $this->contentLinkView->getLink(
-				$contentItem,
+				$navigationLink,
 				[ 'class' => self::CSS_CLASS['group-content-link'] ]
 			);
 		}
