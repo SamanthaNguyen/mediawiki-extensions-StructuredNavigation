@@ -7,7 +7,7 @@ use TitleValue;
 /**
  * @license MIT
  */
-class NavigationGroupLink {
+final class NavigationGroupLink {
 	private TitleValue $titleValue;
 	private string $title;
 	private string $label;

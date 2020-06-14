@@ -2,7 +2,7 @@
 
 namespace StructuredNavigation;
 
-class NavigationGroup {
+final class NavigationGroup {
 	private string $label;
 	/** @param NavigationGroupLink[] */
 	private array $links;

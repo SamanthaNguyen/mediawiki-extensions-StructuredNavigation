@@ -5,7 +5,7 @@ namespace StructuredNavigation;
 /**
  * @license MIT
  */
-class Navigation {
+final class Navigation {
 	private array $content;
 	private string $titleLabel;
 	/** @param NavigationGroup[] */

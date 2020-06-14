@@ -11,7 +11,7 @@ use WikiPage;
 /**
  * @license MIT
  */
-class NavigationFactory {
+final class NavigationFactory {
 	private TitleParser $titleParser;
 	private NavigationTitleValue $navigationTitleValue;
 
