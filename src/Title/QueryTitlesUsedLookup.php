@@ -2,7 +2,6 @@
 
 namespace StructuredNavigation\Title;
 
-use StructuredNavigation\Navigation;
 use StructuredNavigation\NavigationFactory;
 
 /**
@@ -19,7 +18,7 @@ final class QueryTitlesUsedLookup {
 	}
 
 	public function getTitlesUsed( string $navigationTitle ) : array {
-		$navigation = $this->getNavigation( $navigationTitle );
+		$navigation = $this->navigationFactory->newFromTitle( $navigationTitle );
 		$titlesUsed = [];
 		$groups = $navigation->getGroups();
 
@@ -30,9 +29,5 @@ final class QueryTitlesUsedLookup {
 		}
 
 		return array_unique( $titlesUsed );
-	}
-
-	private function getNavigation( string $title ) : Navigation {
-		return $this->navigationFactory->newFromTitle( $title );
 	}
 }
