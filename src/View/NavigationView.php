@@ -2,6 +2,7 @@
 
 namespace StructuredNavigation\View;
 
+use MediaWiki\Linker\LinkRenderer;
 use OOUI\HtmlSnippet;
 use OOUI\Tag;
 use StructuredNavigation\Libs\OOUI\Element\DescriptionList;
