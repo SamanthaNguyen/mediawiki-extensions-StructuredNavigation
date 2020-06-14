@@ -58,9 +58,8 @@ final class NavigationView {
 	}
 
 	private function renderGroups( Navigation $navigation ) : DescriptionList {
-		$allGroups = [];
+		$allGroups = [];	
 		$groups = $navigation->getGroups();
-
 		foreach ( $groups as $group ) {
 			$allGroups[] = [
 				'term' => $group->getLabel(),
@@ -77,6 +76,9 @@ final class NavigationView {
 		] );
 	}
 
+	/**
+	 * @param NavigationGroupLink[] $navigationLinks
+	 */
 	private function renderContent( array $navigationLinks ) : UnorderedList {
 		$allContent = [];
 
