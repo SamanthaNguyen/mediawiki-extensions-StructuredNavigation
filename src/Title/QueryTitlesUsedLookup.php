@@ -19,17 +19,13 @@ final class QueryTitlesUsedLookup {
 	}
 
 	public function getTitlesUsed( string $navigationTitle ) : array {
-		$jsonEntity = $this->getNavigation( $navigationTitle );
+		$navigation = $this->getNavigation( $navigationTitle );
 		$titlesUsed = [];
-		$allGroups = $jsonEntity->getGroups();
+		$groups = $navigation->getGroups();
 
-		foreach ( $allGroups as $group ) {
-			foreach ( $jsonEntity->getGroupContent( $group ) as $contentItem ) {
-				if ( is_array( $contentItem ) ) {
-					$titlesUsed[] = $contentItem[0];
-				} else {
-					$titlesUsed[] = $contentItem;
-				}
+		foreach ( $groups as $group ) {
+			foreach ( $group->getLinks() as $link ) {
+				$titlesUsed[] = $link->getTitle();
 			}
 		}
 

@@ -72,7 +72,10 @@ class NavigationFactory {
 	private function parseNavigationLink( $stringOrArrayLink ) : NavigationGroupLink {
 		if ( is_array( $stringOrArrayLink ) ) {
 			return new NavigationGroupLink(
-				$this->titleParser->parseTitle( $stringOrArrayLink[0] ), $stringOrArrayLink[1] );
+				$this->titleParser->parseTitle( $stringOrArrayLink[0] ), 
+				$stringOrArrayLink[0],
+				$stringOrArrayLink[1]
+			);
 		} else {
 			return new NavigationGroupLink(
 				$this->titleParser->parseTitle( $stringOrArrayLink ), $stringOrArrayLink );
