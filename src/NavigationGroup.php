@@ -2,6 +2,9 @@
 
 namespace StructuredNavigation;
 
+/**
+ * @license MIT
+ */
 final class NavigationGroup {
 	private string $label;
 	/** @param NavigationGroupLink[] */
