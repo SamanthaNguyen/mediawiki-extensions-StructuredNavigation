@@ -12,6 +12,7 @@ class NavigationView {
 	private const PARAM_GROUPS = 'groups';
 	private const PARAM_GROUP_LABEL = "group_label";
 	private const PARAM_LINKS = "links";
+	private const PARAM_LINK = "link";
 
 	private LinkRenderer $linkRenderer;
 	private TemplateParser $templateParser;
@@ -29,7 +30,7 @@ class NavigationView {
 		foreach( $navigation->getGroups() as $group ) {
 			$links = [];
 			foreach ( $group->getLinks() as $link ) {
-				$links[] = [ 'link' =>
+				$links[] = [ self::PARAM_LINK =>
 					$this->linkRenderer->makeLink(
 						$link->getTitleValue(),
 						$link->getLabel(),
@@ -40,7 +41,7 @@ class NavigationView {
 
 			$groups[] = [
 				self::PARAM_GROUP_LABEL => $group->getLabel(),
-				'links' => $links
+				self::PARAM_LINKS => $links
 			];
 		}
 
