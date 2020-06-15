@@ -4,7 +4,6 @@ namespace StructuredNavigation\Services;
 
 use Config;
 use MediaWiki\MediaWikiServices;
-use StructuredNavigation\AttributeQualifier;
 use StructuredNavigation\DocumentationContent;
 use StructuredNavigation\Hooks\ParserFirstCallInitHandler;
 use StructuredNavigation\Libs\MediaWiki\NamespacedTitleSearcher;
