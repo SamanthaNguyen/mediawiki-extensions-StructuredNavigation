@@ -124,6 +124,14 @@
 			"services": [
 				"StructuredNavigation.NavigationViewPresenter"
 			]
+		},
+		{
+			"path": "/structurednav/v0/{title}/titles-used",
+			"method": "GET",
+			"class": "StructuredNavigation\\Rest\\NavigationTitlesUsedHandler",
+			"services": [
+				"StructuredNavigation.QueryTitlesUsedLookup"
+			]
 		}
 	],
 	"ConfigRegistry": {
