@@ -37,7 +37,8 @@
 	"Hooks": {
 		"BeforeDisplayNoArticleText": "StructuredNavigation\\Hooks\\HookHandler::onBeforeDisplayNoArticleText",
 		"ParserFirstCallInit": "StructuredNavigation\\Hooks\\HookHandler::onParserFirstCallInit",
-		"UserGetReservedNames": "StructuredNavigation\\Hooks\\HookHandler::onUserGetReservedNames"
+		"UserGetReservedNames": "StructuredNavigation\\Hooks\\HookHandler::onUserGetReservedNames",
+		"ExtensionLoadSchemaUpdates": "StructuredNavigation\\Hooks\\HookHandler::onExtensionLoadSchemaUpdates"
 	},
 	"SpecialPages": {
 		"NavigationSchema": {

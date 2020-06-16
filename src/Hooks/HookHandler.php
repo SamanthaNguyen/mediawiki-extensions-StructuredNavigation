@@ -3,6 +3,7 @@
 namespace StructuredNavigation\Hooks;
 
 use Article;
+use DatabaseUpdater;
 use Parser;
 use StructuredNavigation\Services\Services;
 
@@ -40,5 +41,17 @@ final class HookHandler {
 	public static function onUserGetReservedNames( array &$reservedUsernames ) : void {
 		$reservedUsernames[] = Services::getInstance()->getConfig()
 			->get( 'ReservedUsername' );
+	}
+
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/LoadExtensionSchemaUpdates
+	 * @param DatabaseUpdater $updater
+	 */
+	public static function onExtensionLoadSchemaUpdates( DatabaseUpdater $updater ) {
+		$extDir = Services::getInstance()->getConfig()->get( 'ExtensionDirectory' );
+		$sqlDir = $extDir . '/StructuredNavigation/sql';
+
+		$updater->addExtensionTable( 'sn_nav', $sqlDir . '/schema.sql' );
+		$updater->addExtensionTable( 'sn_page', $sqlDir . '/schema.sql' );
 	}
 }
