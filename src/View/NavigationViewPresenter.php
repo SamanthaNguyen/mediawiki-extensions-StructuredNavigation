@@ -50,7 +50,7 @@ final class NavigationViewPresenter {
 	public function loadModules( $output ) : void {
 		$output->addModuleStyles( [
 			'ext.structuredNav.NavigationView.styles',
-			'ext.structuredNav.NavigationView.seperator.styles',
+			'ext.structuredNav.NavigationView.separator.styles',
 			'ext.structuredNav.wiki.styles'
 		] );
 		$output->addModules( [

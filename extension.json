@@ -189,9 +189,9 @@
 		"ext.structuredNav.NavigationView.styles": {
 			"styles": "resources/styles/ext.structuredNav.NavigationView.less"
 		},
-		"ext.structuredNav.NavigationView.seperator.styles": {
+		"ext.structuredNav.NavigationView.separator.styles": {
 			"class": "ResourceLoaderLessVarFileModule",
-			"styles": "resources/styles/ext.structuredNav.NavigationView.seperator.less",
+			"styles": "resources/styles/ext.structuredNav.NavigationView.separator.less",
 			"lessMessages": [
 				"structurednavigation-separator-symbol"
 			]
