@@ -31,7 +31,10 @@ return [
 
 	'StructuredNavigation.NamespacedTitleSearcher'
 		=> function ( MediaWikiServices $services ) : NamespacedTitleSearcher {
-		return new NamespacedTitleSearcher( $services->newSearchEngine() );
+		return new NamespacedTitleSearcher(
+			$services->newSearchEngine(),
+			$services->getTitleFactory()
+		);
 		},
 
 	'StructuredNavigation.NavigationView'
